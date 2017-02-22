@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Trabajos</h1>
+<%= form_tag(:action => "index") do %>	
+	<%= text_field_tag "delete", nil, placeholder: "Ingrese serial a eliminar", class: "class" %>
+	<%= submit_tag "Eliminar", class: "class" %>
+<% end -%>
+<table>
+	<tr>
+		<td>Usuario</td>
+		<td>Item</td>
+		<td>Categoria</td>
+	</tr>
+	<% @item.each do |i| %>
+		<tr>
+			<td><%= i.user.name%></td>
+			<td><%= i.serial %></td>
+			<td><%= i.category.name %></td>
+		</tr>
+	<% end %>
+</table>
